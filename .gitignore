@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Payroll Agent project ignores
+.venv/
+.pytest_cache/
+.local_store/
+.vscode/
+__pycache__/
+*.pyc
+.env
+mcp_config.json

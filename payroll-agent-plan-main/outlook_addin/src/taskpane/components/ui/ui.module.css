@@ -1,0 +1,235 @@
+/* Shared pieces ported from web/src/components and web/src/pages/*.module.css. */
+
+/* ── Badges (PriorityBadge, CategoryChip, statusBadge) ── */
+.priority,
+.chip,
+.status {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  border-radius: var(--radius);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.priority {
+  padding: 0.3125rem 0.4375rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.priorityHigh {
+  border-color: var(--amber-ring);
+  background: var(--amber-wash);
+  color: var(--amber-dim);
+  font-weight: 800;
+}
+
+.chip {
+  padding: 0.3125rem 0.5rem;
+  border: 1px solid var(--panel-border);
+  background: var(--ink-elevated);
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.status {
+  padding: 0.3125rem 0.5rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.statusWarn {
+  border-color: var(--amber-ring);
+  background: var(--amber-wash);
+  color: var(--amber-dim);
+}
+
+.statusOk {
+  border-color: rgba(45, 154, 99, 0.45);
+  background: rgba(45, 154, 99, 0.12);
+  color: var(--ok);
+}
+
+.statusDanger {
+  border-color: var(--danger-border);
+  background: var(--danger-wash);
+  color: var(--danger);
+}
+
+/* ── Labels ── */
+.kicker {
+  color: var(--amber);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── EmptyState ── */
+.empty {
+  display: grid;
+  gap: 0.625rem;
+  justify-items: start;
+  padding: 1.25rem 1.125rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, var(--amber-wash), transparent 55%),
+    var(--paper);
+  box-shadow: var(--shadow-panel);
+}
+
+.emptyTitle {
+  font-size: 1.0625rem;
+  line-height: 1.2;
+}
+
+.emptyDetail {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.note {
+  display: grid;
+  gap: 0.375rem;
+  padding: 1rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+
+/* ── Error box (QaPage .errorBox) ── */
+.errorBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--danger-border);
+  border-left: 3px solid var(--danger);
+  background: var(--danger-wash);
+}
+
+.errorBox p {
+  color: var(--fg);
+  font-size: 0.8125rem;
+  word-break: break-word;
+}
+
+.errorLabel {
+  color: var(--danger);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  border: 1px solid var(--amber-ring);
+  background: var(--ink-elevated);
+  box-shadow: var(--shadow-panel);
+  color: var(--fg);
+  font-size: 0.8125rem;
+  animation: enter 0.25s ease-out both;
+}
+
+/* ── Meta tiles (detailMeta / detailGrid) ── */
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.metaGrid div {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+  padding: 0.625rem 0.7rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.metaGrid span {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.metaGrid strong {
+  overflow: hidden;
+  color: var(--fg);
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── ThemeToggle ── */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--panel-border);
+  background: var(--ink-elevated);
+}
+
+.toggle:hover {
+  border-color: var(--amber-ring);
+  background: var(--hover-wash);
+}
+
+.track {
+  position: relative;
+  width: 2rem;
+  height: 1.05rem;
+  border-radius: 999px;
+  background: var(--rail);
+  border: 1px solid var(--line);
+}
+
+.thumb {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--amber);
+  transition: transform 0.18s ease;
+}
+
+.thumb[data-theme-active="light"] {
+  transform: translateX(0.95rem);
+}
+
+.toggleLabel {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

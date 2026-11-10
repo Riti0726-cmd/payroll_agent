@@ -1,0 +1,104 @@
+name: sv_employee_payroll
+description: >
+  Employee payroll records: earnings breakdown (regular, overtime),
+  tax withholdings (federal, state, FICA), total deductions, and net pay
+  by client, employee, and pay period.
+tables:
+  - name: sv_employee_payroll
+    description: Core payroll fact table with per-period earnings and deductions.
+    base_table:
+      database: PAYROLL_DB
+      schema: PAYROLL_SCHEMA
+      table: SV_EMPLOYEE_PAYROLL
+    dimensions:
+      - name: payroll_id
+        expr: payroll_id
+        description: Unique payroll record identifier.
+        data_type: VARCHAR
+        unique: true
+      - name: client_id
+        expr: client_id
+        description: Client/company identifier (e.g. CLT-200).
+        data_type: VARCHAR
+      - name: employee_id
+        expr: employee_id
+        description: Employee identifier (e.g. EMP-1001).
+        data_type: VARCHAR
+      - name: employee_name
+        expr: employee_name
+        description: Full name of the employee.
+        data_type: VARCHAR
+      - name: pay_period
+        expr: pay_period
+        description: "Pay period in YYYY-MM format."
+        data_type: VARCHAR
+      - name: pay_frequency
+        expr: pay_frequency
+        description: "Payment frequency: bi-weekly, semi-monthly, or monthly."
+        data_type: VARCHAR
+    time_dimensions:
+      - name: pay_date
+        expr: pay_date
+        description: Actual date of pay issuance.
+        data_type: DATE
+    measures:
+      - name: regular_hours
+        expr: regular_hours
+        description: Regular hours worked in the period.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: overtime_hours
+        expr: overtime_hours
+        description: Overtime hours worked in the period.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: hourly_rate
+        expr: hourly_rate
+        description: Hourly pay rate (null for salaried employees).
+        data_type: NUMBER
+        default_aggregation: avg
+      - name: regular_pay
+        expr: regular_pay
+        description: Regular earnings amount.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: overtime_pay
+        expr: overtime_pay
+        description: Overtime earnings amount.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: gross_pay
+        expr: gross_pay
+        description: Total gross pay (regular_pay + overtime_pay).
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: federal_tax
+        expr: federal_tax
+        description: Federal income tax withheld.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: state_tax
+        expr: state_tax
+        description: State income tax withheld.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: social_security
+        expr: social_security
+        description: Social Security (FICA OASDI) tax withheld.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: medicare
+        expr: medicare
+        description: Medicare (FICA HI) tax withheld.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: total_deductions
+        expr: total_deductions
+        description: Sum of all deductions from gross pay.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: net_pay
+        expr: net_pay
+        description: Net pay after all deductions (gross_pay - total_deductions).
+        data_type: NUMBER
+        default_aggregation: sum

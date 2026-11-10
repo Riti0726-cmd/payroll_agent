@@ -1,0 +1,217 @@
+.shell {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top right, var(--shell-glow), transparent 26rem),
+    var(--page-bg);
+}
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid var(--panel-border);
+  background: var(--rail);
+}
+
+.brand {
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.navLink {
+  border-left: 3px solid transparent;
+  color: var(--fg-soft);
+  padding: 0.75rem 0.875rem;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.navLink:hover {
+  background: var(--hover-wash);
+  color: var(--fg);
+}
+
+.active {
+  border-left-color: var(--amber);
+  background: var(--amber-wash);
+  color: var(--fg);
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--panel-border);
+  background: var(--header-bg);
+  backdrop-filter: blur(18px);
+}
+
+.specialist {
+  display: grid;
+  gap: 0.125rem;
+  text-align: right;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.displayName {
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.triagePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 18rem;
+  min-height: 2rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+  color: var(--fg-soft);
+  font-size: 0.75rem;
+  line-height: 1.2;
+}
+
+.triagePillLive {
+  border-color: var(--amber-ring);
+  background: var(--amber-wash);
+  color: var(--fg);
+}
+
+.triagePillDone {
+  border-color: rgba(45, 154, 99, 0.45);
+  background: rgba(45, 154, 99, 0.12);
+}
+
+.triagePillError {
+  border-color: var(--danger-border);
+  background: var(--danger-wash);
+  color: var(--danger);
+}
+
+.triageDot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 0 rgba(232, 163, 23, 0.55);
+  animation: triagePulse 1.4s ease-out infinite;
+  flex-shrink: 0;
+}
+
+.triageLabel {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.triageDetail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--fg-softer);
+  max-width: 10rem;
+}
+
+@keyframes triagePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 23, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 0.45rem rgba(232, 163, 23, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 23, 0);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.5rem;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    grid-template-columns: 1fr;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: auto;
+  }
+
+  .rail {
+    gap: 1rem;
+    border-right: 0;
+    border-bottom: 1px solid var(--panel-border);
+  }
+
+  .nav {
+    grid-template-columns: repeat(5, minmax(max-content, 1fr));
+    overflow-x: auto;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .actions {
+    align-items: stretch;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .specialist {
+    text-align: left;
+  }
+
+  .main {
+    overflow: visible;
+  }
+
+  .content {
+    overflow: visible;
+  }
+}

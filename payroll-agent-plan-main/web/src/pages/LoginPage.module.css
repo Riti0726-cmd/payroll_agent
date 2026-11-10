@@ -1,0 +1,99 @@
+.loginPage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background:
+    radial-gradient(circle at 20% 20%, var(--shell-glow), transparent 28rem),
+    linear-gradient(135deg, var(--page-bg) 0%, var(--rail) 100%);
+}
+
+.themeSlot {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.panel {
+  width: min(100%, 62rem);
+  min-height: 34rem;
+  display: grid;
+  grid-template-columns: 0.75rem 1fr;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.brandRail {
+  display: grid;
+  grid-template-rows: 1.2fr 0.9fr 1.8fr;
+  background: var(--rail);
+}
+
+.brandRail span:nth-child(1) {
+  background: var(--amber);
+}
+
+.brandRail span:nth-child(2) {
+  background: var(--amber-dim);
+}
+
+.brandRail span:nth-child(3) {
+  background: var(--hover-wash);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: clamp(2rem, 8vw, 6rem);
+}
+
+.eyebrow {
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.content h1 {
+  max-width: 11ch;
+  font-size: clamp(3rem, 9vw, 6.8rem);
+  line-height: 0.9;
+  letter-spacing: -0.08em;
+}
+
+.copy {
+  max-width: 42rem;
+  color: var(--fg-soft);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.notice {
+  max-width: 42rem;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--amber);
+  background: var(--amber-wash);
+  color: var(--fg);
+}
+
+@media (max-width: 640px) {
+  .loginPage {
+    padding: 1rem;
+    place-items: stretch;
+  }
+
+  .panel {
+    min-height: calc(100vh - 2rem);
+  }
+
+  .content {
+    padding: 2rem;
+  }
+}

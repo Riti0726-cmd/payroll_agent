@@ -1,0 +1,111 @@
+name: sv_hr_workforce
+description: >
+  HR workforce directory: employee identity, employment status,
+  compensation details (hourly rate / salary), direct deposit info,
+  W-4 withholding, home address, and target payroll system.
+tables:
+  - name: sv_hr_workforce
+    description: Employee identity and HR master data.
+    base_table:
+      database: PAYROLL_DB
+      schema: PAYROLL_SCHEMA
+      table: SV_HR_WORKFORCE
+    dimensions:
+      - name: employee_id
+        expr: employee_id
+        description: Primary employee identifier (e.g. EMP-1001).
+        data_type: VARCHAR
+        unique: true
+      - name: client_id
+        expr: client_id
+        description: Client/company identifier (e.g. CLT-200).
+        data_type: VARCHAR
+      - name: full_name
+        expr: full_name
+        description: Employee full name.
+        data_type: VARCHAR
+      - name: first_name
+        expr: first_name
+        description: First name.
+        data_type: VARCHAR
+      - name: last_name
+        expr: last_name
+        description: Last name.
+        data_type: VARCHAR
+      - name: email
+        expr: email
+        description: Employee email address.
+        data_type: VARCHAR
+      - name: department
+        expr: department
+        description: Department name.
+        data_type: VARCHAR
+      - name: position_title
+        expr: position_title
+        description: Job title / position.
+        data_type: VARCHAR
+      - name: status_class
+        expr: status_class
+        description: "Employment status: active, terminated, or leave."
+        data_type: VARCHAR
+      - name: pay_type
+        expr: pay_type
+        description: "Compensation type: hourly or salary."
+        data_type: VARCHAR
+      - name: system_target
+        expr: system_target
+        description: "Target payroll system: prismhr or isolved."
+        data_type: VARCHAR
+      - name: w4_filing_status
+        expr: w4_filing_status
+        description: W-4 filing status (single, married, etc.).
+        data_type: VARCHAR
+      - name: direct_deposit_bank
+        expr: direct_deposit_bank
+        description: Bank name for direct deposit.
+        data_type: VARCHAR
+      - name: direct_deposit_last4
+        expr: direct_deposit_last4
+        description: Last 4 digits of direct deposit account.
+        data_type: VARCHAR
+      - name: address_line1
+        expr: address_line1
+        description: Street address.
+        data_type: VARCHAR
+      - name: address_city
+        expr: address_city
+        description: City.
+        data_type: VARCHAR
+      - name: address_state
+        expr: address_state
+        description: State abbreviation (2 chars).
+        data_type: VARCHAR
+      - name: address_zip
+        expr: address_zip
+        description: ZIP code.
+        data_type: VARCHAR
+    time_dimensions:
+      - name: hire_date
+        expr: hire_date
+        description: Date of hire.
+        data_type: DATE
+      - name: termination_date
+        expr: termination_date
+        description: Termination date (null if still active).
+        data_type: DATE
+    measures:
+      - name: hourly_rate
+        expr: hourly_rate
+        description: Current hourly pay rate (null for salaried).
+        data_type: NUMBER
+        default_aggregation: avg
+      - name: annual_salary
+        expr: annual_salary
+        description: Annual salary (null for hourly).
+        data_type: NUMBER
+        default_aggregation: avg
+      - name: w4_allowances
+        expr: w4_allowances
+        description: Number of W-4 allowances claimed.
+        data_type: NUMBER
+        default_aggregation: sum

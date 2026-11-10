@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+  "id": "41b277a0-b082-4801-acfa-ba39d97fca2a",
+  "manifestVersion": "1.17",
+  "version": "1.0.0",
+  "name": {
+    "short": "Payroll Specialist",
+    "full": "Engage PEO Payroll Specialist"
+  },
+  "description": {
+    "short": "Triage results, drafts, change lists and payroll Q&A beside each email.",
+    "full": "Shows the Payroll Specialist agent's triage for the open email (category, priority, draft reply, change list), lets you accept or edit drafts and insert them into a reply, ask payroll questions, and run triage on your mailbox."
+  },
+  "developer": {
+    "name": "Engage PEO",
+    "websiteUrl": "https://www.engagepeo.com",
+    "privacyUrl": "https://www.engagepeo.com/privacy-policy",
+    "termsOfUseUrl": "https://www.engagepeo.com/terms-of-use"
+  },
+  "icons": {
+    "outline": "assets/outline.png",
+    "color": "assets/color.png"
+  },
+  "accentColor": "#00607F",
+  "localizationInfo": {
+    "defaultLanguageTag": "en-us",
+    "additionalLanguages": []
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "MailboxItem.Read.User",
+          "type": "Delegated"
+        }
+      ]
+    }
+  },
+  "validDomains": ["localhost:3000", "login.microsoftonline.com"],
+  "extensions": [
+    {
+      "requirements": {
+        "scopes": ["mail"],
+        "capabilities": [{ "name": "Mailbox", "minVersion": "1.5" }]
+      },
+      "runtimes": [
+        {
+          "requirements": {
+            "capabilities": [{ "name": "Mailbox", "minVersion": "1.5" }]
+          },
+          "id": "TaskPaneRuntime",
+          "type": "general",
+          "code": {
+            "page": "https://localhost:3000/taskpane.html"
+          },
+          "lifetime": "short",
+          "actions": [
+            {
+              "id": "TaskPaneRuntimeShow",
+              "type": "openPage",
+              "pinnable": true
+            }
+          ]
+        }
+      ],
+      "ribbons": [
+        {
+          "contexts": ["mailRead"],
+          "tabs": [
+            {
+              "builtInTabId": "TabDefault",
+              "groups": [
+                {
+                  "id": "payrollReadGroup",
+                  "label": "Payroll",
+                  "icons": [
+                    { "size": 16, "url": "https://localhost:3000/assets/icon-16.png" },
+                    { "size": 32, "url": "https://localhost:3000/assets/icon-32.png" },
+                    { "size": 80, "url": "https://localhost:3000/assets/icon-80.png" }
+                  ],
+                  "controls": [
+                    {
+                      "id": "payrollOpenPaneButton",
+                      "type": "button",
+                      "label": "Payroll Specialist",
+                      "icons": [
+                        { "size": 16, "url": "https://localhost:3000/assets/icon-16.png" },
+                        { "size": 32, "url": "https://localhost:3000/assets/icon-32.png" },
+                        { "size": 80, "url": "https://localhost:3000/assets/icon-80.png" }
+                      ],
+                      "supertip": {
+                        "title": "Payroll Specialist",
+                        "description": "See the agent's triage, draft reply and change list for this email."
+                      },
+                      "actionId": "TaskPaneRuntimeShow"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

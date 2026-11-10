@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "snowflake-engage-knowledge-mcp-server": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://ctunvjh-hd08476.snowflakecomputing.com/api/v2/databases/PAYROLL_DB/schemas/PAYROLL_SCHEMA/mcp-servers/PAYROLL_MCP_SERVER",
+        "3336",
+        "--host",
+        "localhost",
+        "--static-oauth-client-info",
+        "{\"client_id\":\"YOUR_CLIENT_ID\",\"client_secret\":\"YOUR_CLIENT_SECRET\"}"
+      ]
+    }
+  }
+}

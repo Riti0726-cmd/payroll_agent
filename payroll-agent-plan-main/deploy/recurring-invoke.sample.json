@@ -1,0 +1,57 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "description": "Sample recurring invoke pattern for UC-005/006. Prefer Logic App Recurrence or Timer Function that POSTs a TRIAGE_RUN command to the Foundry agent Responses endpoint. Do not run APScheduler inside the hosted agent container."
+  },
+  "parameters": {
+    "foundryAgentInvokeUrl": {
+      "type": "string",
+      "metadata": {
+        "description": "Foundry hosted agent Responses invoke URL (from azd / portal)."
+      }
+    },
+    "specialistId": {
+      "type": "string",
+      "defaultValue": "default"
+    },
+    "intervalHours": {
+      "type": "int",
+      "allowedValues": [2, 4, 24],
+      "defaultValue": 4,
+      "metadata": {
+        "description": "Must match specialist config interval_hours stored in Blob (UC-006)."
+      }
+    },
+    "authHeaderName": {
+      "type": "string",
+      "defaultValue": "Authorization"
+    },
+    "authHeaderValue": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Bearer token or API key used by your Foundry invoke path."
+      }
+    }
+  },
+  "variables": {
+    "recurrenceFrequency": "Hour",
+    "recurrenceInterval": "[parameters('intervalHours')]",
+    "triageBody": "[concat('TRIAGE_RUN specialist_id=', parameters('specialistId'))]"
+  },
+  "resources": [],
+  "outputs": {
+    "logicAppGuidance": {
+      "type": "string",
+      "value": "Create a Logic App with Recurrence trigger (Frequency=Hour, Interval=intervalHours). Action: HTTP POST to foundryAgentInvokeUrl with body = TRIAGE_RUN specialist_id=... Align Interval with Blob specialist config.mode=recurring and interval_hours."
+    },
+    "sampleRequestBody": {
+      "type": "string",
+      "value": "[variables('triageBody')]"
+    },
+    "cliEquivalent": {
+      "type": "string",
+      "value": "azd ai agent invoke \"TRIAGE_RUN specialist_id=default\""
+    }
+  }
+}

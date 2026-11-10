@@ -1,0 +1,143 @@
+{
+  "mailbox": "payroll@peoservices.com",
+  "client_id": "000100",
+  "client_name": "Demo Client",
+  "source": "Cortex Analyst SV_EMPLOYEE_WORKFORCE LIMIT 10",
+  "emails": [
+    {
+      "id": "e2e-01",
+      "expected_category": "qa",
+      "employee_id": "A00001",
+      "from": "manager.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Client 000100 / EMP A00001 — August net pay looks short",
+      "body": "Hi Payroll Specialist,\n\nFor Demo Client (client_id 000100), employee A00001 is asking why their August 2026 net pay was lower than July.\n\nPay period: 2026-08\nEmployee ID: A00001\nClient ID: 000100\n\nCan you check regular earnings, overtime, and employee deductions and explain the variance?\n\nThanks,\nClient HR\n"
+    },
+    {
+      "id": "e2e-02",
+      "expected_category": "qa",
+      "employee_id": "A04801",
+      "from": "a04801.employee@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Question on deductions for employee A04801 (Demo Client)",
+      "body": "Hello,\n\nI am writing about employee A04801 at client 000100 (Demo Client).\nOn the latest payslip there is a deduction I do not recognize.\n\nPlease confirm what garnishment or benefit deduction codes applied for the current pay period and the amounts from payroll history.\n\nEmployee ID: A04801\nClient ID: 000100\n\nThank you.\n"
+    },
+    {
+      "id": "e2e-03",
+      "expected_category": "changelist",
+      "employee_id": "B01154",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Pay change request — EMP B01154 hourly rate $20 → $22",
+      "body": "Payroll team,\n\nPlease process a pay change for Demo Client 000100 / employee B01154.\n\nChange type: hourly_pay_rate\nPrevious hourly rate: 20.00\nNew hourly rate: 22.00\nEffective date: 2026-09-14\nDue: please complete by 2026-09-20\n\nEmployee ID: B01154\nClient ID: 000100\n\nPlease prepare the change list for specialist review (no system write-back yet).\n\nRegards,\nClient Payroll Contact\n"
+    },
+    {
+      "id": "e2e-04",
+      "expected_category": "changelist",
+      "employee_id": "B02090",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Bank / direct deposit update — EMP B02090",
+      "body": "Hi,\n\nEmployee B02090 (client 000100 Demo Client) needs a direct deposit account update.\n\nPlease change direct deposit to:\nBank routing: 021000021\nAccount ending: 4455 (checking)\n\nEffective as soon as possible for the next pay cycle.\nNote: status_class for this employee may show L — please validate in Snowflake before processing.\n\nEmployee ID: B02090\nClient ID: 000100\n\nThanks,\nHR\n"
+    },
+    {
+      "id": "e2e-05",
+      "expected_category": "changelist",
+      "employee_id": "C04803",
+      "from": "c04803@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "W-4 withholding update — C04803 / client 000100",
+      "body": "Please update W-4 federal withholding for employee C04803 at Demo Client (000100).\n\nRequested change:\n- Filing status: Married filing jointly\n- Extra withholding: $50 per pay period\nEffective date: 2026-10-01\n\nEmployee ID: C04803\nClient ID: 000100\n\nPlease create a change list line for specialist approval.\n"
+    },
+    {
+      "id": "e2e-06",
+      "expected_category": "todo",
+      "employee_id": "D00172",
+      "from": "supervisor.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Please approve timesheet — EMP D00172 week of Sep 8",
+      "body": "Payroll,\n\nPlease approve hours for employee D00172 (Demo Client / 000100) for the week of 2026-09-08.\n\nRegular: 40\nOT: 4\n\nThis is a pay approval / timesheet task — confirm receipt and expected turnaround.\n\nEmployee ID: D00172\nClient ID: 000100\n\n— Supervisor\n"
+    },
+    {
+      "id": "e2e-07",
+      "expected_category": "todo",
+      "employee_id": "E00173",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Off-cycle payroll request — EMP E00173",
+      "body": "We need an off-cycle / special payroll run for employee E00173 at client 000100 (Demo Client) for a missed reimbursement of $350.\n\nPlease schedule off-cycle processing and confirm the next available window.\nThis is an operational TODO for the specialist queue (not a data Q&A).\n\nEmployee ID: E00173\nClient ID: 000100\nPay period context: 2026-09\n\nThank you,\nHR Ops\n"
+    },
+    {
+      "id": "e2e-08",
+      "expected_category": "out_of_scope",
+      "employee_id": "E00965",
+      "from": "e00965@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Help enrolling in dental benefits — E00965",
+      "body": "Hi,\n\nI need help enrolling employee E00965 (client 000100) in dental benefits for open enrollment.\nWhich plan should they pick and how do they add dependents?\n\nEmployee ID: E00965\nClient ID: 000100\n\nPlease route to Benefits if this is outside payroll.\n"
+    },
+    {
+      "id": "e2e-09",
+      "expected_category": "out_of_scope",
+      "employee_id": "E02021",
+      "from": "manager.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Workers compensation claim follow-up — EMP E02021",
+      "body": "We have a workplace injury claim for employee E02021 at Demo Client 000100.\nCan payroll file the workers' compensation paperwork and advise on claim status?\n\nEmployee ID: E02021\nClient ID: 000100\n\nPlease route appropriately if out of payroll specialist scope.\n"
+    },
+    {
+      "id": "e2e-10",
+      "expected_category": "out_of_scope",
+      "employee_id": "E02645",
+      "from": "e02645@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Personal tax return advice — E02645",
+      "body": "Can you help employee E02645 (client 000100) prepare their personal IRS tax return and recommend deductions for a side business?\n\nEmployee ID: E02645\nClient ID: 000100\n\nThis may be tax advisory rather than payroll operations.\n"
+    },
+    {
+      "id": "e2e-11",
+      "expected_category": "qa",
+      "employee_id": "A00001",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Bonus not on payslip — EMP A00001 / client 000100",
+      "body": "Follow-up for Demo Client 000100 employee A00001:\n\nA $500 spot bonus was approved for August but does not appear on the payslip.\nPlease check payroll history / earnings codes for pay period 2026-08 and explain whether it was paid, deferred, or miscoded.\n\nEmployee ID: A00001\nClient ID: 000100\nPay period: 2026-08\n"
+    },
+    {
+      "id": "e2e-12",
+      "expected_category": "changelist",
+      "employee_id": "A04801",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Position and pay rate change — A04801",
+      "body": "Please process a position update for employee A04801, client 000100 (Demo Client).\n\nNew position: Senior Payroll Clerk\nPrevious hourly rate: 18.50\nNew hourly rate: 21.00\nEffective date: 2026-09-21\n\nEmployee ID: A04801\nClient ID: 000100\n\nCreate change-list lines for position and hourly_pay_rate for HITL review.\n"
+    },
+    {
+      "id": "e2e-13",
+      "expected_category": "todo",
+      "employee_id": "B01154",
+      "from": "supervisor.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "URGENT ASAP — correct hours approval EMP B01154",
+      "body": "URGENT — please approve corrected timesheet for employee B01154 (client 000100) immediately / ASAP before today's cutoff.\n\nCorrected OT: 6 hours (was 2).\nThis is a rush pay-approval task for the specialist TODO queue.\n\nEmployee ID: B01154\nClient ID: 000100\n"
+    },
+    {
+      "id": "e2e-14",
+      "expected_category": "changelist",
+      "employee_id": "D00172",
+      "from": "hr.demo@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "Raise hourly rate to $24 — EMP D00172 (no prior rate stated)",
+      "body": "Please increase the hourly rate for employee D00172 at Demo Client 000100 to $24.00 effective 2026-09-28.\n\nWe do not have the previous rate in this email — look up current rate in Snowflake and build the change list.\n\nEmployee ID: D00172\nClient ID: 000100\nNew hourly rate: 24.00\nEffective date: 2026-09-28\n"
+    },
+    {
+      "id": "e2e-15",
+      "expected_category": "qa",
+      "employee_id": "E00173",
+      "from": "e00173@example.com",
+      "to": "payroll@peoservices.com",
+      "subject": "YTD federal tax looks high — E00173",
+      "body": "For employee E00173 / client 000100, year-to-date federal withholding seems higher than expected compared to peers on the same pay cycle.\n\nPlease use payroll history to compare YTD taxable wages and federal tax withheld and explain any variance. Do not invent figures.\n\nEmployee ID: E00173\nClient ID: 000100\nPay period context: 2026 YTD through August\n"
+    }
+  ]
+}

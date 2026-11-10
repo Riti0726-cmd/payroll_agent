@@ -1,0 +1,41 @@
+# -------------------------------------------------------------------------
+# Copyright (c) Microsoft Corporation. All rights reserved.
+# Licensed under the MIT License. See License.txt in the project root for
+# license information.
+# --------------------------------------------------------------------------
+
+"""SDK self-telemetry (SDKStats) for `microsoft-opentelemetry`.
+
+This module provides backend-agnostic SDK health and usage telemetry that
+works regardless of which export backends are enabled (Azure Monitor, OTLP,
+A365, Console).  It tracks:
+
+- **Features**: which package features are active (disk retry, AAD, live
+  metrics, browser SDK loader, etc.)
+- **Instrumentations**: which library instrumentations are enabled (Django,
+  FastAPI, OpenAI, LangChain, etc.)
+
+The module is initialised by :func:`use_microsoft_opentelemetry` during
+setup.  Feature/instrumentation gauges are emitted by the upstream
+``StatsbeatManager`` from ``azure-monitor-opentelemetry-exporter``;
+we register our own network gauge on the manager's ``MeterProvider``
+for OTLP and Agent365 per-endpoint success counts.
+"""
+
+from microsoft.opentelemetry._sdkstats._state import (
+    get_sdkstats_feature_flags,
+    get_sdkstats_instrumentation_flags,
+    is_sdkstats_enabled,
+    set_sdkstats_feature,
+    set_sdkstats_instrumentation,
+    set_sdkstats_shutdown,
+)
+
+__all__ = [
+    "get_sdkstats_feature_flags",
+    "get_sdkstats_instrumentation_flags",
+    "is_sdkstats_enabled",
+    "set_sdkstats_feature",
+    "set_sdkstats_instrumentation",
+    "set_sdkstats_shutdown",
+]

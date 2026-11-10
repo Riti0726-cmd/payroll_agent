@@ -1,0 +1,57 @@
+name: sv_employee_benefits
+description: >
+  Employee benefit enrollments: medical, dental, vision, 401k, HSA,
+  and life insurance plans with employee and employer contribution amounts.
+tables:
+  - name: sv_employee_benefits
+    description: Benefit enrollment and contribution details per employee.
+    base_table:
+      database: PAYROLL_DB
+      schema: PAYROLL_SCHEMA
+      table: SV_EMPLOYEE_BENEFITS
+    dimensions:
+      - name: benefit_id
+        expr: benefit_id
+        description: Unique benefit record identifier.
+        data_type: VARCHAR
+        unique: true
+      - name: employee_id
+        expr: employee_id
+        description: Employee identifier (e.g. EMP-1001).
+        data_type: VARCHAR
+      - name: client_id
+        expr: client_id
+        description: Client identifier (e.g. CLT-200).
+        data_type: VARCHAR
+      - name: benefit_type
+        expr: benefit_type
+        description: "Type of benefit: medical, dental, vision, 401k, hsa, life."
+        data_type: VARCHAR
+      - name: plan_name
+        expr: plan_name
+        description: Name of the benefit plan.
+        data_type: VARCHAR
+      - name: status
+        expr: status
+        description: "Enrollment status: active or inactive."
+        data_type: VARCHAR
+    time_dimensions:
+      - name: effective_date
+        expr: effective_date
+        description: Enrollment effective date.
+        data_type: DATE
+      - name: end_date
+        expr: end_date
+        description: Enrollment end date (null if active).
+        data_type: DATE
+    measures:
+      - name: employee_contrib
+        expr: employee_contrib
+        description: Employee contribution amount per period.
+        data_type: NUMBER
+        default_aggregation: sum
+      - name: employer_contrib
+        expr: employer_contrib
+        description: Employer contribution amount per period.
+        data_type: NUMBER
+        default_aggregation: sum

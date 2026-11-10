@@ -1,0 +1,235 @@
+/* Panels for the "This email" tab; patterns from web Drafts/ChangeLists/Queue pages. */
+
+.panel {
+  display: grid;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.875rem 0.875rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.panelHeader > div {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.panelHeader h2,
+.panelHeader h3 {
+  overflow-wrap: anywhere;
+}
+
+.panelBody {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.875rem;
+}
+
+.eyebrow,
+.sectionLabel {
+  color: var(--amber);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.subtle {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badges {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.priorityAdjust {
+  display: grid;
+  gap: 0.3125rem;
+}
+
+.priorityAdjust span,
+.fieldLabel {
+  color: var(--fg-softer);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.priorityAdjust select {
+  min-width: 6.5rem;
+  padding: 0.5rem 0.5625rem;
+  background: var(--rail);
+  color: var(--fg);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 0.875rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.actions button {
+  padding: 0.5rem 0.6875rem;
+}
+
+.actionsEnd {
+  margin-left: auto;
+}
+
+/* ── Draft editor (DraftsPage .editor) ── */
+.editor {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.editor textarea {
+  width: 100%;
+  min-height: 13rem;
+  padding: 0.75rem;
+  border-color: var(--amber-ring);
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.hint {
+  color: var(--fg-softer);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* ── Change list lines (ChangeListsPage line cards) ── */
+.banner {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--amber-ring);
+  background: var(--amber-wash);
+  color: var(--fg-soft);
+  font-size: 0.8125rem;
+  line-height: 1.45;
+}
+
+.lines {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.lineCard {
+  display: grid;
+  gap: 0.625rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(232, 163, 23, 0.04), transparent 3.5rem),
+    var(--paper-2);
+}
+
+.lineCardIncomplete {
+  border-color: var(--amber-ring);
+}
+
+.lineHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lineIndex {
+  color: var(--muted);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.lineField {
+  margin-right: auto;
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.incompleteChip,
+.metaChip {
+  padding: 0.25rem 0.45rem;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--muted);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.incompleteChip {
+  border-color: var(--amber-ring);
+  background: var(--amber-wash);
+  color: var(--amber-dim);
+}
+
+.delta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 0.5rem;
+}
+
+.valueBlock {
+  display: grid;
+  gap: 0.3rem;
+  min-width: 0;
+}
+
+.value {
+  overflow-wrap: anywhere;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--fg-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.valueTo {
+  border-color: var(--amber-ring);
+  box-shadow: 0 0 0 2px var(--amber-wash);
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.deltaArrow {
+  padding-bottom: 0.5rem;
+  color: var(--amber);
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+
+.lineMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}

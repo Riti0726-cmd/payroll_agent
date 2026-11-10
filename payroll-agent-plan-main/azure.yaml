@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
+
+requiredVersions:
+    azd: '>=1.27.1'
+    extensions:
+        azure.ai.agents: '>=1.0.0-beta.9'
+name: langgraph-payroll-specialist-engine
+services:
+    langgraph-payroll-specialist-engine:
+        project: src/payroll_specialist
+        host: azure.ai.agent
+        language: python
+        uses:
+            - ai-project
+        env:
+            AZURE_AI_MODEL_DEPLOYMENT_NAME: ${AZURE_AI_MODEL_DEPLOYMENT_NAME}
+            AZURE_AI_API_KEY: ${AZURE_AI_API_KEY}
+            SNOWFLAKE_MCP_SERVER_URL: ${SNOWFLAKE_MCP_SERVER_URL}
+            SNOWFLAKE_ACCOUNT: ${SNOWFLAKE_ACCOUNT}
+            SNOWFLAKE_MCP_AUTH: ${SNOWFLAKE_MCP_AUTH}
+            SNOWFLAKE_PAT: ${SNOWFLAKE_PAT}
+            SNOWFLAKE_OAUTH_TOKEN: ${SNOWFLAKE_OAUTH_TOKEN}
+            SNOWFLAKE_OAUTH_CLIENT_ID: ${SNOWFLAKE_OAUTH_CLIENT_ID}
+            SNOWFLAKE_OAUTH_CLIENT_SECRET: ${SNOWFLAKE_OAUTH_CLIENT_SECRET}
+            SNOWFLAKE_OAUTH_REFRESH_TOKEN: ${SNOWFLAKE_OAUTH_REFRESH_TOKEN}
+            SNOWFLAKE_OAUTH_REDIRECT_URI: ${SNOWFLAKE_OAUTH_REDIRECT_URI}
+            DATABASE_URL: ${DATABASE_URL}
+            OTEL_AUTO_CONFIGURE_AZURE_MONITOR: "false"
+            APPLICATIONINSIGHTS_ENABLE_LIVE_METRICS: "false"
+            APPLICATIONINSIGHTS_LIVE_METRICS_ENABLED: "false"
+            APPLICATIONINSIGHTS_STATSBEAT_DISABLED_ALL: "true"
+            OTEL_METRICS_EXPORTER: "none"
+            APPLICATIONINSIGHTS_AUTH_MODE: "key"
+            APPLICATIONINSIGHTS_CONNECTION_STRING: "InstrumentationKey=1bc05ad7-5ec5-4222-b32f-0e4969609057;IngestionEndpoint=https://eastus2-3.in.applicationinsights.azure.com/;ApplicationId=61dffcbd-ef3e-4789-9d3e-3e3d0b3a2732"
+        codeConfiguration:
+            entryPoint: main.py
+            runtime: python_3_13
+        container:
+            resources:
+                cpu: "0.5"
+                memory: 1Gi
+        description: LangGraph payroll specialist engine with Outlook triage (UC-001–010) on Microsoft Foundry.
+        kind: hosted
+        metadata:
+            tags:
+                - LangGraph
+                - LangChain
+                - AI Agent Hosting
+                - Azure AI AgentServer
+                - Responses Protocol
+                - Streaming
+                - Workflows
+                - Outlook Triage
+        name: langgraph-payroll-specialist-engine
+        displayName: LangGraph Payroll Specialist Engine
+        protocols:
+            - protocol: responses
+              version: 2.0.0
+    ai-project:
+        host: azure.ai.project
+        deployments: []
+        endpoint: https://foudnryqaandhr.services.ai.azure.com/api/projects/proj-default
+infra:
+    provider: microsoft.foundry

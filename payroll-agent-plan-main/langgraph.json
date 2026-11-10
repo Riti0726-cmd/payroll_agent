@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "payroll_specialist": "./src/payroll_specialist/graph.py:graph"
+  },
+  "env": ".env"
+}

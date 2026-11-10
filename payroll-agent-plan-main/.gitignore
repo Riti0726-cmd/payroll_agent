@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.env
+.azure/
+*.egg-info/
+dist/
+build/
+.local_store/
+outlook_addin/node_modules/
+web/node_modules/
+web/dist/
+mcp_config.json

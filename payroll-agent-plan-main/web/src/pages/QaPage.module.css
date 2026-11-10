@@ -1,0 +1,333 @@
+.page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.875rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.header h2 {
+  color: var(--fg);
+  font-size: 1.125rem;
+}
+
+.header p {
+  max-width: 34rem;
+  color: var(--fg-softer);
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.eyebrow,
+.emptyKicker,
+.messageRole,
+.errorLabel,
+.composer label,
+.sources span {
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.eyebrow,
+.emptyKicker {
+  color: var(--amber);
+}
+
+.chatPanel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, var(--hover-wash), transparent 18rem),
+    var(--paper);
+  box-shadow: var(--shadow-panel);
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.emptyState {
+  display: grid;
+  align-content: center;
+  gap: 0.75rem;
+  min-height: 100%;
+  max-width: 38rem;
+  padding: 2rem;
+}
+
+.emptyState h3 {
+  color: var(--fg);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 0.98;
+}
+
+.emptyState p {
+  color: var(--muted);
+  max-width: 32rem;
+}
+
+.message {
+  display: grid;
+  gap: 0.5rem;
+  width: min(44rem, 88%);
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-panel);
+}
+
+.message p,
+.messageBody {
+  white-space: pre-wrap;
+  min-height: 1.25rem;
+}
+
+.userMessage {
+  align-self: flex-end;
+  border-color: var(--amber-ring);
+  background: var(--ink-elevated);
+}
+
+.userMessage p,
+.userMessage .messageRole {
+  color: var(--fg);
+}
+
+.assistantMessage {
+  align-self: flex-start;
+  background: var(--paper-2);
+}
+
+.assistantMessage p {
+  color: var(--fg);
+}
+
+.assistantMessage .messageRole {
+  color: var(--amber-dim);
+}
+
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+  animation: scan 1.1s linear infinite;
+}
+
+.sources {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 0.625rem;
+  border-top: 1px solid var(--line);
+}
+
+.sources span {
+  color: var(--muted);
+}
+
+.toolList {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.toolItem {
+  display: grid;
+  gap: 0.375rem;
+}
+
+.toolChip,
+.toolChipStatic {
+  display: grid;
+  gap: 0.15rem;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper-2);
+  color: var(--fg);
+  padding: 0.55rem 0.7rem;
+}
+
+.toolChip {
+  cursor: pointer;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.toolChip:hover,
+.toolChip:focus-visible {
+  border-color: var(--amber-ring);
+  background: var(--hover-wash);
+  outline: none;
+}
+
+.toolChip[aria-expanded="true"] {
+  border-color: var(--amber-ring);
+}
+
+.toolChipLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.toolChipDetail {
+  color: var(--fg-softer);
+  font-size: 0.75rem;
+  line-height: 1.35;
+}
+
+.toolPanes {
+  display: grid;
+  gap: 0.625rem;
+  padding: 0.65rem 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+}
+
+.toolPanes h4 {
+  margin: 0 0 0.3rem;
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.toolPanes pre {
+  margin: 0;
+  max-height: 14rem;
+  overflow: auto;
+  padding: 0.55rem 0.65rem;
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--input-bg);
+  color: var(--input-fg);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.errorBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--danger-border);
+  border-left: 3px solid var(--danger);
+  background: var(--danger-wash);
+}
+
+.errorBox p {
+  color: var(--fg);
+}
+
+.errorLabel {
+  color: var(--danger);
+}
+
+.composer {
+  display: grid;
+  gap: 0.5rem;
+  padding: 0.875rem 1rem 1rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.composer label {
+  color: var(--muted);
+}
+
+.composerRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 0.75rem;
+}
+
+.composer textarea {
+  width: 100%;
+  min-height: 5.5rem;
+  resize: vertical;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--input-fg);
+  padding: 0.75rem;
+  outline: none;
+}
+
+.composer textarea:focus {
+  border-color: var(--amber-ring);
+  box-shadow: 0 0 0 2px var(--amber-wash);
+}
+
+.composer button {
+  min-width: 7.5rem;
+}
+
+@keyframes scan {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@media (max-width: 760px) {
+  .page {
+    min-height: auto;
+  }
+
+  .header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .header p {
+    text-align: left;
+  }
+
+  .message {
+    width: 100%;
+  }
+
+  .composerRow {
+    grid-template-columns: 1fr;
+  }
+}

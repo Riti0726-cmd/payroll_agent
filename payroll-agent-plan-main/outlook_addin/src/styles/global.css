@@ -1,0 +1,171 @@
+/* Based on web/src/styles/global.css; sized for a ~320–450px task pane. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--paper-2);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--fg);
+  background-color: var(--page-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+h2 {
+  font-size: 1.0625rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+p {
+  color: var(--fg);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0.5625rem 0.875rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background-color: var(--ink-elevated);
+  color: var(--fg);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+button:hover {
+  border-color: var(--amber-ring);
+  background-color: var(--rail);
+}
+
+button:active {
+  background-color: var(--ink);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+button.btn-primary {
+  background-color: var(--amber);
+  border-color: var(--amber);
+  color: var(--on-accent);
+  font-weight: 600;
+}
+
+button.btn-primary:hover {
+  background-color: var(--amber-dim);
+  border-color: var(--amber-dim);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+select,
+textarea,
+input[type="text"] {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
+
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--amber-ring);
+  box-shadow: 0 0 0 2px var(--amber-wash);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--paper-2);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border: 2px solid var(--paper-2);
+  border-radius: var(--radius);
+}
+
+/* Staggered enter, the CSS equivalent of web/src/lib/animateEnter.ts. */
+[data-enter] {
+  animation: enter 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: calc(var(--enter-index, 0) * 40ms);
+}
+
+@keyframes enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-enter] {
+    animation: none;
+  }
+}

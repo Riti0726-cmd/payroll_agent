@@ -1,0 +1,69 @@
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #0b1012;
+  --fg: #e8eeec;
+  --ink: #0b1012;
+  --ink-elevated: #141b1e;
+  --paper: #141b1e;
+  --paper-2: #1a2226;
+  --amber: #e8a317;
+  --amber-dim: #c48a0f;
+  --on-accent: #0b1012;
+  --muted: #8a989e;
+  --rail: #080c0e;
+  --line: rgba(232, 238, 236, 0.1);
+  --danger: #e0543c;
+  --ok: #2d9a63;
+  --panel: #141b1e;
+  --panel-border: rgba(232, 238, 236, 0.1);
+  --fg-soft: rgba(232, 238, 236, 0.78);
+  --fg-softer: rgba(232, 238, 236, 0.62);
+  --hover-wash: rgba(232, 238, 236, 0.06);
+  --header-bg: rgba(11, 16, 18, 0.92);
+  --amber-wash: rgba(232, 163, 23, 0.14);
+  --amber-ring: rgba(232, 163, 23, 0.4);
+  --shell-glow: rgba(232, 163, 23, 0.1);
+  --danger-border: rgba(224, 84, 60, 0.4);
+  --danger-wash: rgba(224, 84, 60, 0.12);
+  --input-bg: #1a2226;
+  --input-fg: #e8eeec;
+  --grain-opacity: 0.045;
+  --font-display: "Syne", sans-serif;
+  --font-body: "IBM Plex Sans", sans-serif;
+  --radius: 2px;
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03), 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --page-bg: #eef1f0;
+  --fg: #0e1518;
+  --ink: #0e1518;
+  --ink-elevated: #ffffff;
+  --paper: #ffffff;
+  --paper-2: #e4ebe8;
+  --amber: #e8a317;
+  --amber-dim: #c48a0f;
+  --on-accent: #0e1518;
+  --muted: #5a6a70;
+  --rail: #dde3e1;
+  --line: rgba(14, 21, 24, 0.12);
+  --danger: #b3341e;
+  --ok: #1a6b42;
+  --panel: #ffffff;
+  --panel-border: rgba(14, 21, 24, 0.1);
+  --fg-soft: rgba(14, 21, 24, 0.7);
+  --fg-softer: rgba(14, 21, 24, 0.58);
+  --hover-wash: rgba(14, 21, 24, 0.05);
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --amber-wash: rgba(232, 163, 23, 0.14);
+  --amber-ring: rgba(232, 163, 23, 0.4);
+  --shell-glow: rgba(232, 163, 23, 0.12);
+  --danger-border: rgba(179, 52, 30, 0.35);
+  --danger-wash: rgba(179, 52, 30, 0.08);
+  --input-bg: #ffffff;
+  --input-fg: #0e1518;
+  --grain-opacity: 0.03;
+  --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.95), 0 12px 28px rgba(14, 21, 24, 0.08);
+}

@@ -1,0 +1,250 @@
+.page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.875rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.toolbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel);
+  box-shadow: var(--shadow-panel);
+}
+
+.toolbar h2,
+.detail h2 {
+  color: var(--fg);
+  font-size: 1.125rem;
+}
+
+.eyebrow,
+.emptyKicker {
+  color: var(--amber);
+  font-size: 0.6875rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.filters label,
+.priorityAdjust {
+  display: grid;
+  gap: 0.3125rem;
+}
+
+.filters span,
+.priorityAdjust span {
+  color: var(--fg-softer);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.filters select,
+.priorityAdjust select {
+  min-width: 9.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--rail);
+  color: var(--fg);
+  padding: 0.5625rem 0.625rem;
+}
+
+.listStack {
+  display: grid;
+}
+
+.row {
+  position: relative;
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+  padding: 0.8125rem 0.875rem 0.8125rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--fg);
+  text-align: left;
+}
+
+.row:hover,
+.row:focus-visible,
+.selected {
+  border-left-color: var(--amber);
+  background: var(--amber-wash);
+}
+
+.rowMeta,
+.rowFooter,
+.badges,
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status,
+.statusBadge {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.statusBadge {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--panel-border);
+  border-radius: var(--radius);
+  background: var(--panel);
+}
+
+.timestamp,
+.rowFooter {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.timestamp {
+  margin-left: auto;
+}
+
+.subject {
+  color: var(--fg);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.rowFooter {
+  justify-content: space-between;
+}
+
+.listEmpty,
+.selectPrompt {
+  display: grid;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.listEmpty {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.selectPrompt {
+  align-content: center;
+  min-height: 24rem;
+  padding: 2rem;
+}
+
+.selectPrompt p {
+  max-width: 28rem;
+  color: var(--muted);
+}
+
+.detail {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--fg);
+}
+
+.detailHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.875rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.625rem;
+}
+
+.detailGrid div {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+.detailGrid span,
+.extracted dt {
+  color: var(--muted);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.detailGrid strong,
+.extracted dd {
+  color: var(--fg);
+  font-weight: 800;
+}
+
+.excerpt {
+  color: var(--fg);
+}
+
+.extracted {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.extracted div {
+  display: grid;
+  gap: 0.1875rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.actions {
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  .toolbar,
+  .detailHeader {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .filters select,
+  .priorityAdjust select {
+    width: 100%;
+  }
+
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
